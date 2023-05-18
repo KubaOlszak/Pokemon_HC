@@ -20,11 +20,11 @@ const healthCenter = {
   //healingPokemon: function ;
 }
 
-const enterBtnElt = document.querySelector('.pokemon_card .btn')!;
+const enterBtnElt = document.querySelector('.pokemonOut1 .btn')!;
 enterBtnElt.addEventListener("click", enterInCenter);
 
 function enterInCenter() {
-  const pokemonElt = document.getElementById('bulbi')!;
+  const pokemonElt = document.querySelector('.pokemonOut1')!;
   pokemonElt.classList.add('hidePokemon');
 
   // console.log(pokemonElt);
