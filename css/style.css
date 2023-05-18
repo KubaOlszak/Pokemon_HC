@@ -1,0 +1,20 @@
+/************   Pokemeon Health Center   ***************/
+* {
+  box-sizing: border-box;
+}
+
+#outside {
+  margin-left: 400px ;
+}
+
+.pokemon_card {
+  width: 120px;
+  height: 120px;
+  margin: 25px;
+  
+}
+
+.pokemon_card img {
+  width: 100%;
+}
+
