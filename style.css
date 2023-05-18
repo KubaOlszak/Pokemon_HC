@@ -1,10 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-    font-family: sans-serif;
- 
- 
+  font-family: sans-serif;
 }
+
 h1 {
   margin: 20px;
   padding: 0;
@@ -12,9 +11,9 @@ h1 {
   font-weight: normal;
   color: #0bc452;
   text-align: center;
-
   margin-right: 20rem;
 }
+
 .li {
   list-style: none;
   margin: 0;
@@ -56,4 +55,8 @@ h1 {
   border: 2px solid #0bc452;
   padding: 10px;
   text-align: center;
+}
+
+.hidePokemon {
+  display: none;
 }
