@@ -81,7 +81,6 @@ function createCard(title, imageUrl, energie,) {
 };
 
 
-
 function grandir(title, energie) {
   const elem = document.querySelector('#' + title);
   let largeur = energie;
