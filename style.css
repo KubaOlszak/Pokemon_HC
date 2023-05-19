@@ -136,3 +136,11 @@ li {
   text-align: center;
   grid-column: span 1;
 }
+
+.imagePokemon {
+  width: 120px;
+}
+
+.hidePokemon {
+  display: none;
+}
