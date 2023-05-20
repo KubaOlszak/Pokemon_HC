@@ -73,10 +73,21 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid #0bc452
+}
+
+  
+
+
+.compteurPresence p {
+  font-size: 16px;
+  text-align: center;
+  font-size: 24px; 
+  font-weight: bold;
   
 }
 
-.compteurPresence p {
+.nomPokemon{
   font-size: 16px;
   text-align: center;
   font-size: 24px; 
@@ -93,6 +104,7 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border:   2px solid #0bc452;
 }
 
 .soigner-btn,
@@ -141,90 +153,3 @@ li {
   width: 120px;
 }
 
-.hidePokemon {
-  display: none;
-}
-
-* {
-    box-sizing: border-box;
-  }
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: roboto, sans-serif;
-  }
-  h1 {
-    padding: 0;
-    margin: 0;
-  }
-  header {
-    display: flex;
-    padding: 20px;
-    align-items: center;
-    background-color: rgb(13, 78, 182);
-    height: 100px;
-    width: 100%;
-  }
-  .cards {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .card {
-    border-radius: 10px;
-    width: 200px;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  }
-  .card-img {
-    border-radius: 10px 10px 0 0;
-    background-size: cover;
-    background-position: center;
-    background-image: url( https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png);
-    height: 200px;
-    width: 100%;
-  }
-  .card-body {
-    padding: 10px 20px;
-  }
-  .card-body h2 {
-    margin: 10px 0px;
-  }
-  .card-button {
-    border: none;
-    border-radius: 10px;
-    height: 50px;
-    background-color: lightblue;
-    width: 100%;
-  }
- .energie {
-    flex-direction: column;
-    align-content: center;
-      background-color: rgb(0, 255, 72);
-      height: 25%;
-      width: 80%;
-      align-items: center; 
-      border-radius: 10px;
-   }
-   .barre {
-    color :#fff;
-    background-color: #2b579a;
-    /* width : 15%; */
-    height: 50px;
-    padding-top:15px;
-    box-shadow:4px 6px #666;
-    border-radius: 10px;
-   }
-
-   .btn {
-    border:none;
-    padding: 8px 16 px ;
-    color:#fff;
-    background-color:#629a2b;
-    cursor:pointer;
-    margin-left:15px;
-    border-radius: 10px;
-   }
