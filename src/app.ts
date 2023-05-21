@@ -156,7 +156,7 @@ function isPlacesNumberNegative() {                    // vérifie si nombre de 
   }
 }
 
-function isPlacesNumberOverCapacity() {                // vérifie si nombre de places pas < 0
+function isPlacesNumberOverCapacity() {                // vérifie si nombre de places pas > maxCapacity
   if (waitingRoom.capacity >= maxCapacity) {
     alert("Plus de places disponibles !");
     return true;
