@@ -1,3 +1,4 @@
+// import * as pokemonList from "./pokedex";
 // Déclaration des constantes et variables
 const maxCapacity = 6; // Capacité maximale du centre de santé
 let currentCapacity = 0; // Capacité actuelle du centre de santé
@@ -5,7 +6,7 @@ let isInside = false; // Indicateur pour suivre si le Pokémon est à l'intérie
 
 // Objet représentant la salle d'attente
 const waitingRoom = {
-  capacity: 0, // Capacité actuelle de la salle d'attente
+  capacity: currentCapacity, // Capacité actuelle de la salle d'attente
 };
 
 // Objet représentant le centre de santé
@@ -20,6 +21,28 @@ const bulbi = {
   health: 10, // Santé du Pokémon
   isInside: false, // Indicateur pour suivre si le Pokémon est à l'intérieur ou à l'extérieur
 };
+
+function isPlacesNumberNegative() {     // vérifie si nombre de places pas < 0
+  if (waitingRoom.capacity < 0) {
+    alert("Nombre de places négatif !");
+    return true;
+  }
+}
+
+function isPlacesNumberOverCapacity() {     // vérifie si nombre de places pas < 0
+  if (waitingRoom.capacity >= maxCapacity) {
+    alert("Plus de places disponibles !");
+    return true;
+  }
+}
+
+window.onload = (event) => {            // affiche le nombre de places dispo au chargement de la page
+  // isPlacesNumberNegative();
+  const counter: (HTMLElement | null) = document.querySelector("#counter")!;
+
+  counter.textContent = waitingRoom.capacity.toString();
+}
+
 
 // Sélection du bouton d'entrée/sortie
 const enterBtnElt = document.querySelector(".pokemonOut1 .btn")!;
@@ -37,6 +60,8 @@ const pokemonListItems = document.querySelectorAll(".nomPokemonsPresents li");
 
 // Fonction pour changer l'emplacement du Pokémon entre l'intérieur et l'extérieur du centre de santé
 function togglePokemonLocation() {
+  if (isPlacesNumberNegative() || isPlacesNumberOverCapacity()) return;
+
   const pokemonElt = document.querySelector(".pokemonOut1")!; // Sélection de l'élément du Pokémon
   const pokemonContainer = pokemonElt.parentElement; // Sélection du conteneur du Pokémon
 
@@ -64,7 +89,6 @@ function togglePokemonLocation() {
     const pokemonListItem = document.getElementById("pokemonItem1")!;
     pokemonListItem.textContent = bulbi.name;
   }
-
   // Mise à jour du compteur
   counterElt.textContent = currentCapacity.toString();
 }

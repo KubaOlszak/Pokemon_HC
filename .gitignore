@@ -1,2 +1,12 @@
 node_modules
 dist
+img
+debug.log
+trash*
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.tif
+*.tiff
+.gitignore
