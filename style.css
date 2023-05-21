@@ -22,6 +22,14 @@ body {
   margin-bottom: 10%;
 }
 
+.card-img {
+    height: 120px;
+    /* width: 100%; */
+    border-radius: 10px 10px 0 0;
+    background-size: cover;
+    background-position: center;
+}
+
 .pokemonOutside > div {
     border: 2px solid #0bc452;
     padding: 20px;
@@ -107,11 +115,10 @@ li {
   border:   2px solid #0bc452;
 }
 
-.soigner-btn,
-.entree-prioritaire-btn {
+.menu-btn {
   display: block;
-  margin-top: 10px;
-  padding: 10px 20px;
+  /* margin-top: 10px; */
+  padding: 4px 8px;
   background-color: #0bc452;
   color: #fff;
   border: none;
@@ -120,8 +127,7 @@ li {
   transition: background-color 0.3s ease;
 }
 
-.soigner-btn:hover,
-.entree-prioritaire-btn:hover {
+.menu-btn:hover {
   background-color: #0d9644;
 }
 
@@ -130,6 +136,7 @@ li {
 }
 
 .entree-prioritaire-btn {
+  margin: 8px 0;
   order: 1;
 }
 

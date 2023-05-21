@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<header lang="en">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,102 +12,55 @@
     <h1>
       Pokemon Health Center
     </h1>
-    <div class="container">
-    <div class="main">
-      <div class="menuMachine">
-        <div class="nomPokemonsPresents">
-          <h4 class="nomPokemon">
-          Pokémons présents dans la machine
-          </h4>
-          <ul>
-            <li id="pokemonItem1"></li>
-            <li id="pokemonItem2"></li>
-            <li id="pokemonItem3"></li>
-            <li id="pokemonItem4"></li>
-            <li id="pokemonItem5"></li>
-            <li id="pokemonItem6"></li>
-          </ul>
+      <div class="container">
+        <div class="main">
+          <div class="menuMachine">
+            <div class="nomPokemonsPresents">
+              <h4 class="nomPokemon">
+                Pokémons présents dans la machine
+              </h4>
+              <ul>
+                <li id="pokemonItem1"></li>
+                <li id="pokemonItem2"></li>
+                <li id="pokemonItem3"></li>
+                <li id="pokemonItem4"></li>
+                <li id="pokemonItem5"></li>
+                <li id="pokemonItem6"></li>
+              </ul>
+            </div>
+            <div class="compteurPresence">
+              <p>Nombre de Pokémons présents: <span id="counter">0</span>/6</p>
+            </div>
+            <div class="boutonsDuMenu">
+              <input type="button" class="menu-btn" onclick="generatePokemons()" value="Ajouter Pokemons">
+              <button class="menu-btn soigner-btn">Soigner</button>
+              <button class="menu-btn entree-prioritaire-btn">Entrée prioritaire</button>
+            </div>
+          </div>
+          <div class="pokemonInside">
+            <div class="pokemonIn1">
+              <h2>Salle 1</h2>
+            </div>
+            <div class="pokemonIn2">
+              <h2>mmm</h2>
+            </div>
+            <div class="pokemonIn3">
+              <h2>mmm</h2>
+            </div>
+            <div class="pokemonIn4">
+              <h2>mmmm</h2>
+            </div>
+            <div class="pokemonIn5">
+              <h2>lll</h2>
+            </div>
+            <div class="pokemonIn6">
+              <h2>kkkk</h2>
+            </div>
+          </div>
         </div>
-        <div class="compteurPresence">
-          <p>Nombre de Pokémons présents: <span id="counter">0</span>/6</p>
-        </div>
-        <div class="boutonsDuMenu">
-          <button class="soigner-btn">Soigner</button>
-          <button class="entree-prioritaire-btn">Entrée prioritaire</button>
+        <div class="pokemonOutside">
         </div>
       </div>
-      <div class="pokemonInside">
-        <div class="pokemonIn1">
-          <h2>Salle 1</h2>
-        </div>
-        <div class="pokemonIn2">
-          <h2>mmm</h2>
-        </div>
-        <div class="pokemonIn3">
-          <h2>mmm</h2>
-        </div>
-        <div class="pokemonIn4">
-          <h2>mmmm</h2>
-        </div>
-        <div class="pokemonIn5">
-          <h2>lll</h2>
-        </div>
-        <div class="pokemonIn6">
-          <h2>kkkk</h2>
-        </div>
-      </div>
-    </div>
-    <div class="pokemonOutside">
-      <div class="pokemonOut1">
-        <h4></h4>
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" id="bulbi" class="imagePokemon" alt="Bulbizarre">
-          <input class="btn" type="button" value="Enter">
-      </div>
-      <div class="pokemonOut2">
-        <h4></h4>
-          <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quas eveniet laudantium autem modi! Non aliquam dolorem facere, ad reiciendis corporis magni vel saepe tempora, ullam, ratione consectetur est dignissimos?
-          </p>
-      </div>
-      <div class="pokemonOut3">
-        <h4></h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quas eveniet laudantium autem modi! Non aliquam dolorem facere, ad reiciendis corporis magni vel saepe tempora, ullam, ratione consectetur est dignissimos?
-        </p>
-      </div>
-      <div class="pokemonOut4">
-        <h4></h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quas eveniet laudantium autem modi! Non aliquam dolorem facere, ad reiciendis corporis magni vel saepe tempora, ullam, ratione consectetur est dignissimos?
-        </p>
-      </div>
-      <div class="pokemonOut5">
-        <h4></h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quas eveniet laudantium autem modi! Non aliquam dolorem facere, ad reiciendis corporis magni vel saepe tempora, ullam, ratione consectetur est dignissimos?
-        </p>
-      </div>
-      <div class="pokemonOut6">
-        <h4></h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quas eveniet laudantium autem modi! Non aliquam dolorem facere, ad reiciendis corporis magni vel saepe tempora, ullam, ratione consectetur est dignissimos?
-        </p>
-      </div>
-      <div class="pokemonOut7">
-        <h4></h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quas eveniet laudantium autem modi! Non aliquam dolorem facere, ad reiciendis corporis magni vel saepe tempora, ullam, ratione consectetur est dignissimos?
-        </p>
-      </div>
-      <div class="pokemonOut8">
-        <h4></h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quas eveniet laudantium autem modi! Non aliquam dolorem facere, ad reiciendis corporis magni vel saepe tempora, ullam, ratione consectetur est dignissimos?
-        </p>
-      </div>
-    </div>
-    </div>
-    <script type="module" src="dist/app.js"></script>
+    <script src="dist/app.js"></script>
   </body>
 </html>
-
