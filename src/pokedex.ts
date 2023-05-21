@@ -29,16 +29,16 @@ export const pokemonList = [
   {
     name: "Drakaufeu",
     picture: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
-    energie: 8
+    energie: 25
   },
   {
     name: "Carapuce",
     picture: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-    energie: 8
+    energie: 19
   }
 ];
 
-export const cards = document.querySelector(".cards")!;
+const cards = document.querySelector(".cards")!;
 
 export function createCard(title: string, imageUrl: string, energie: number,) {
   const card = document.createElement('div');

@@ -1,11 +1,11 @@
 import * as pokemonList from "./pokedex";
 
 const maxCapacity = 6;
-let currentCapacity = 0;
-const isInside: (boolean) = false;
+let currentCapacity = 3;
+// const isInside: (boolean) = false;
 
 const waitingRoom = {
-  capacity: 0,
+  capacity: currentCapacity,
 }
 
 const healthCenter = {
@@ -27,7 +27,7 @@ function isPlacesNumberNegative() {     // vérifie si nombre de places pas < 0
 }
 
 function isPlacesNumberOverCapacity() {     // vérifie si nombre de places pas < 0
-  if (waitingRoom.capacity >= 6) {
+  if (waitingRoom.capacity >= maxCapacity) {
     alert("Plus de places disponibles !");
     return true;
   }
@@ -36,6 +36,7 @@ function isPlacesNumberOverCapacity() {     // vérifie si nombre de places pas 
 window.onload = (event) => {            // affiche le nombre de places dispo au chargement de la page
   // isPlacesNumberNegative();
   const counter: (HTMLElement | null) = document.querySelector("#counter")!;
+
   counter.textContent = waitingRoom.capacity.toString();
 }
 
