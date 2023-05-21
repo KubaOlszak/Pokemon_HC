@@ -1,3 +1,4 @@
+import * as pokemonList from "./pokedex.ts";
 
 const maxCapacity = 6;
 let currentCapacity = 0;

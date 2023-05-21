@@ -27,6 +27,16 @@ const animalsToAdopt = [
     name: "Salamèche",
     picture: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
     energie: 8
+  },
+  {
+    name: "Drakaufeu",
+    picture: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+    energie: 8
+  },
+  {
+    name: "Carapuce",
+    picture: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    energie: 8
   }
 ];
 
