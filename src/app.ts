@@ -72,7 +72,8 @@ let pokemonNames = function getNames() {
 
 const cards = document.querySelector(".pokemonOutside")!;
 
-function createCard(title: string, imageUrl: string, energie: number,) {    // Générer les cartes pokémons
+
+function createCard(title: string, imageUrl: string, energie: number): void {    // Générer les cartes pokémons
   const card = document.createElement('div');
   // card.setAttribute("id", title);
   card.classList.add('card');
@@ -119,6 +120,7 @@ function createCard(title: string, imageUrl: string, energie: number,) {    // G
 
   const cardButton = document.createElement('button');
   cardButton.classList.add('card-button');
+  cardButton.setAttribute("onclick", `togglePokemonLocation('${title}')`);
   cardButton.textContent = 'entrer';
   cardBody.appendChild(cardButton);
 
@@ -143,9 +145,8 @@ function soigner(title: number, energie: number) {
 }
 
 
-// const generateBtnElt = document.getElementById("add-poke-btn")!;
-// addEventListener<"click" extends keyof WindowEventMap>("click", listener: (this: generateBtnElt, ev: WindowEventMap[K]) => any, useCapture?: boolean): void;
-// generateBtnElt.addEventListener("click", generatePokemons());
+const generateBtnElt = document.getElementById("add-poke-btn")!;
+generateBtnElt.addEventListener("click", generatePokemons);
 
 function generatePokemons() {                          // Bouton "Ajouter Pokémons"
   for (let i = 0; i < pokemonList.length; i++) {
@@ -176,52 +177,46 @@ window.onload = (event) => {                           // affiche le nombre de p
   counter.textContent = waitingRoom.capacity.toString();
 }
 
-
-// Sélection du bouton d'entrée/sortie
 const enterBtnElt = document.querySelector(".pokemonOut1 .btn")!;
 // Vérifier si un événement de clic est déjà attaché
-if (!enterBtnElt.hasAttribute("data-event-attached")) {
+/*if (!enterBtnElt.hasAttribute("data-event-attached")) {
   enterBtnElt.setAttribute("data-event-attached", "true");        // Ajouter un attribut pour indiquer que l'événement est attaché
-  enterBtnElt.addEventListener("click", togglePokemonLocation);   // Ajout d'un écouteur d'événement sur le clic du bouton
+  enterBtnElt.addEventListener("click", togglePokemonLocation(pokename: string));   // Ajout d'un écouteur d'événement sur le clic du bouton
 }
+ */
 
-// Sélection de l'élément du compteur
 const counterElt = document.getElementById("counter")!;
 
-// Sélection des éléments <li> correspondant aux emplacements de Pokémon dans la liste
 const pokemonListItems = document.querySelectorAll(".nomPokemonsPresents li");
 
-// Fonction pour changer l'emplacement du Pokémon entre l'intérieur et l'extérieur du centre de santé
-function togglePokemonLocation() {
+function togglePokemonLocation(pokeName: string) {
+
   if (isPlacesNumberNegative() || isPlacesNumberOverCapacity()) return;
 
-  const pokemonElt = document.querySelector(".pokemonOutside *")!; // Sélection de l'élément du Pokémon
+  const pokemonElt = document.querySelector(`${pokeName}`)!;
   // const pokemonContainer = pokemonElt.parentElement; // Sélection du conteneur du Pokémon
 
-  // Vérification de l'emplacement actuel du Pokémon
   if (isInside) {
     // Le Pokémon est à l'intérieur
-    const waitingPlace = document.querySelector(".pokemonOutside")!; // Sélection de l'emplacement à l'extérieur du centre
-    waitingPlace.appendChild(pokemonElt); // Ajout du Pokémon à l'emplacement extérieur
-    isInside = false; // Mise à jour de l'indicateur de position
-    enterBtnElt.setAttribute("value", "Enter"); // Mise à jour de la valeur du bouton
-    currentCapacity--; // Réduire la capacité actuelle
+    const waitingPlace = document.querySelector("pokemonOutside")!;
+    waitingPlace.appendChild(pokemonElt);
+    isInside = false;
+    enterBtnElt.setAttribute("value", "Enter");
+    currentCapacity--;
 
-    // Retirer le nom du Pokémon de la liste
     const pokemonListItem = document.getElementById("pokemonItem1")!;
     pokemonListItem.textContent = "";
   } else {
     // Le Pokémon est à l'extérieur
-    const waitingPlace = document.querySelector(".pokemonInside")!; // Sélection de l'emplacement d'attente dans le centre
-    waitingPlace.appendChild(pokemonElt); // Ajout du Pokémon à l'emplacement d'attente
-    isInside = true; // Mise à jour de l'indicateur de position
-    enterBtnElt.setAttribute("value", "Exit"); // Mise à jour de la valeur du bouton
-    currentCapacity++; // Augmenter la capacité actuelle
+    const waitingPlace = document.querySelector(".pokemonInside")!;
+    waitingPlace.appendChild(pokemonElt);
+    isInside = true;
+    enterBtnElt.setAttribute("value", "Exit");
+    currentCapacity++;
 
-    // Ajouter le nom du Pokémon à la liste
     const pokemonListItem = document.getElementById("pokemonItem1")!;
     pokemonListItem.textContent = bulbi.name;
   }
-  // Mise à jour du compteur
+
   counterElt.textContent = currentCapacity.toString();
 }
