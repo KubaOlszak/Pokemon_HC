@@ -108,10 +108,11 @@ function createCard(title: string, imageUrl: string, energie: number,) {    // G
   const cardEnergie: HTMLElement = document.querySelector('#' + title)!;
   // cardEnergie.classList.add ('energie');
   cardEnergie.textContent = energie.toString();
-  cardEnergie.style.width = `${title} + %`;
+  cardEnergie.style.width = energie + "%";
 
   const healButton = document.createElement('button');
   healButton.classList.add('btn');
+  healButton.classList.add('heal-btn');
   healButton.setAttribute("onclick", `soigner('${title}', ${energie})`);
   healButton.textContent = 'Soigner';
   cardBody.appendChild(healButton);
@@ -140,6 +141,11 @@ function soigner(title: number, energie: number) {
     }
   }
 }
+
+
+// const generateBtnElt = document.getElementById("add-poke-btn")!;
+// addEventListener<"click" extends keyof WindowEventMap>("click", listener: (this: generateBtnElt, ev: WindowEventMap[K]) => any, useCapture?: boolean): void;
+// generateBtnElt.addEventListener("click", generatePokemons());
 
 function generatePokemons() {                          // Bouton "Ajouter Pokémons"
   for (let i = 0; i < pokemonList.length; i++) {
@@ -189,8 +195,8 @@ const pokemonListItems = document.querySelectorAll(".nomPokemonsPresents li");
 function togglePokemonLocation() {
   if (isPlacesNumberNegative() || isPlacesNumberOverCapacity()) return;
 
-  const pokemonElt = document.querySelector(".pokemonOut1")!; // Sélection de l'élément du Pokémon
-  const pokemonContainer = pokemonElt.parentElement; // Sélection du conteneur du Pokémon
+  const pokemonElt = document.querySelector(".pokemonOutside *")!; // Sélection de l'élément du Pokémon
+  // const pokemonContainer = pokemonElt.parentElement; // Sélection du conteneur du Pokémon
 
   // Vérification de l'emplacement actuel du Pokémon
   if (isInside) {

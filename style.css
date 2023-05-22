@@ -22,20 +22,95 @@ body {
   margin-bottom: 10%;
 }
 
+/* .cards {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  }
+*/
+
+.card {
+  border-radius: 10px;
+  width: 120px;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
 .card-img {
-    height: 120px;
-    /* width: 100%; */
-    border-radius: 10px 10px 0 0;
-    background-size: cover;
-    background-position: center;
+  height: 120px;
+  /* width: 100%; */
+  border-radius: 10px 10px 0 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body {
+  padding: 10px 20px;
+}
+
+.card-body h2 {
+  margin: 10px 0px;
+}
+
+.card-button {
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  background-color: lightblue;
+  width: 100%;
+}
+
+.energie {
+  flex-direction: column;
+  align-content: center;
+  background-color: rgb(0, 255, 72);
+  height: 25%;
+  width: 80%;
+  align-items: center; 
+  border-radius: 10px;
+}
+
+.barre {
+  display: flex;
+  align-items: center;
+  color :#fff;
+  background-color: #2b579a;
+  /* width : 15%; */
+  height: 30px;
+  padding-left:2px;
+  box-shadow:4px 6px #666;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.barre p {
+  font-size: 13px;
+}
+
+.heal-btn {
+/* width: 80px; */
+  border:none;
+  padding: 8px 16px ;
+  color:#fff;
+  background-color:#629a2b;
+  cursor:pointer;
+  margin:15px;
+  border-radius: 10px;
+}
+.centerText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pokemonOutside > div {
-    border: 2px solid #0bc452;
-    padding: 20px;
-    text-align: center;
-    grid-column: span 1;
-  
+  border: 2px solid #0bc452;
+  padding: 20px;
+  text-align: center;
+  grid-column: span 1;
 }
 
 h1 {
@@ -59,7 +134,7 @@ li {
   flex-direction: column;
   height: 100%;
   margin: 2%;
-  overflow: hidden;
+  overflow: auto;
   margin-bottom: 20px;
 }
 
@@ -84,15 +159,11 @@ li {
   border: 2px solid #0bc452
 }
 
-  
-
-
 .compteurPresence p {
   font-size: 16px;
   text-align: center;
   font-size: 24px; 
   font-weight: bold;
-  
 }
 
 .nomPokemon{
@@ -140,7 +211,6 @@ li {
   order: 1;
 }
 
-
 .pokemonInside {
   justify-content: center;
   display: grid;
@@ -159,4 +229,3 @@ li {
 .imagePokemon {
   width: 120px;
 }
-
