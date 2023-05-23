@@ -183,6 +183,28 @@ function generatePokemons() {
   }
 
 }
+const healAllBtnElt = document.getElementById("heal-all-btn")!;
+healAllBtnElt.addEventListener("click", healAllPokemons);
+function healAllPokemons() {
+  for (let i = 0; i < pokemonObjects.length; i++) {
+    const pokemon = pokemonObjects[i];
+    const healthBarElt = document.getElementById(pokemon.name + "_health")!;
+    let width = pokemon.health;
+    let id = setInterval(progress, 20);
+
+    function progress() {
+      if (width >= 100) {
+        clearInterval(id);
+        healthBarElt.innerText = "Soigné";
+      } else {
+        width++;
+        healthBarElt.style.width = width + "%";
+        healthBarElt.innerText = width + "%";
+      }
+    }
+  }
+}
+
 
 
 function isPlacesNumberNegative() {                    // vérifie si nombre de places pas < 0
@@ -220,41 +242,47 @@ const pokemonListItems = document.querySelector(".nomPokemonsPresents ul")!;
 console.log(pokemonListItems);
 
 function togglePokemonLocation(pokeName: string) {
-
   if (isPlacesNumberNegative() || isPlacesNumberOverCapacity()) return;
 
   const enterBtnElt = document.querySelector(`#${pokeName} .card-button`)!;
   const pokemonElt = document.querySelector(`#${pokeName}`)!;
-  // const pokemonContainer = pokemonElt.parentElement; // Sélection du conteneur du Pokémon
 
-  if (isInside) {
-    // Le Pokémon est à l'intérieur
-    const waitingPlace = document.querySelector("pokemonOutside")!;
-    waitingPlace.appendChild(pokemonElt);
-    pokemonObjects.isInside = false;
-    enterBtnElt.setAttribute("value", "Enter");
-    currentCapacity--;
+  const pokemon = pokemonObjects.find((pokemon: any) => pokemon.name === pokeName);
 
-    const pokemonListItem = document.getElementById("pokemonItem1")!;
-    pokemonListItem.textContent = "";
-  } else {
+  if (!pokemon.isInside) {
     // Le Pokémon est à l'extérieur
+    if (currentCapacity >= maxCapacity) {
+      alert("Plus de places disponibles !");
+      return;
+    }
+
     const waitingPlace = document.querySelector(".pokemonInside")!;
     waitingPlace.appendChild(pokemonElt);
-    pokemonObjects.isInside = true;
+    pokemon.isInside = true;
     enterBtnElt.textContent = 'Exit';
     enterBtnElt.setAttribute("value", "Exit");
     currentCapacity++;
 
-    // const pokemonListItem = document.getElementById("pokemonItem1")!;
+    // Add Pokémon name to nomPokemonsPresents
+    const pokemonListItem = document.createElement("li");
+    pokemonListItem.setAttribute("id", `${pokeName}-list`);
+    pokemonListItem.textContent = pokeName;
+    pokemonListItems.appendChild(pokemonListItem);
+  } else {
+    // Le Pokémon est à l'intérieur
+    const waitingPlace = document.querySelector(".pokemonOutside")!;
+    waitingPlace.appendChild(pokemonElt);
+    pokemon.isInside = false;
+    enterBtnElt.textContent = 'Enter';
+    enterBtnElt.setAttribute("value", "Enter");
+    currentCapacity--;
 
-
-    pokemonListItems.innerHTML = `<li id="${pokeName}-list">${pokeName}</li>`;
-    let persistentPokeList = pokemonListItems;
-
-    console.log(pokemonListItems);
+    // Remove Pokémon name from nomPokemonsPresents
+    const pokemonListItem = document.getElementById(`${pokeName}-list`);
+    if (pokemonListItem) {
+      pokemonListItem.remove();
+    }
   }
 
   counterElt.textContent = currentCapacity.toString();
-
 }

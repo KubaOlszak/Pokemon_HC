@@ -12,32 +12,29 @@
     <h1>
       Pokemon Health Center
     </h1>
-      <div class="container">
-        <div class="main">
-          <div class="menuMachine">
-            <div class="nomPokemonsPresents">
-              <h4 class="nomPokemon">
-                Pokémons présents dans la machine
-              </h4>
-              <ul>
-              </ul>
-            </div>
-            <div class="compteurPresence">
-              <p>Nombre de Pokémons présents: <span id="counter">0</span>/6</p>
-            </div>
-            <div class="boutonsDuMenu">
-              <input type="button" id="add-poke-btn" class="menu-btn" onclick="generatePokemons()" value="Ajouter Pokemons">
-              <button class="menu-btn soigner-btn">Soigner</button>
-              <button class="menu-btn entree-prioritaire-btn" onclick="togglePokemonLocation()">Entrée prioritaire</button>
-            </div>
+    <div class="container">
+      <div class="main">
+        <div class="menuMachine">
+          <div class="nomPokemonsPresents">
+            <h4 class="nomPokemon">
+              Pokémons présents dans la machine
+            </h4>
+            <ul id="pokemonList"></ul>
           </div>
-          <div class="pokemonInside">
+          <div class="compteurPresence">
+            <p>Nombre de Pokémons présents: <span id="counter">0</span>/6</p>
+          </div>
+          <div class="boutonsDuMenu">
+            <input type="button" id="add-poke-btn" class="menu-btn" onclick="generatePokemons()" value="Ajouter Pokemons">
+            <button id="heal-all-btn" class="btn">Soigner</button>
 
+            <button class="menu-btn entree-prioritaire-btn" onclick="togglePokemonLocation()">Entrée prioritaire</button>
           </div>
         </div>
-        <div class="pokemonOutside">
-        </div>
+        <div class="pokemonInside"></div>
       </div>
+      <div class="pokemonOutside"></div>
+    </div>
     <script src="dist/app.js"></script>
   </body>
 </html>
