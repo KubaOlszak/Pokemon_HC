@@ -19,19 +19,6 @@ const pokemon = {
   isInside: false,
 };
 
-let reptincel = Object.create(pokemon);
-let florizarre = Object.create(pokemon);
-let herbizarre = Object.create(pokemon);
-let bulbizarre = Object.create(pokemon);
-let salamèche = Object.create(pokemon);
-let drakaufeu = Object.create(pokemon);
-let carapuce = Object.create(pokemon);
-let carabaffe = Object.create(pokemon);
-let tortank = Object.create(pokemon);
-
-let pokemonObjects: any = [];
-
-
 const pokemonList = [                                  // Liste des pokémons
   {
     name: "Reptincel",
@@ -90,10 +77,19 @@ let pokemonNames = function getNames() {
   return pokeNames;
 }
 
-const cards = document.querySelector(".pokemonOutside")!;
+const cards = document.querySelector(".pokemonOutside") as HTMLElement;
+
+function createElement(element: string, className: string, parent: HTMLElement) {
+  const elt = document.createElement(element);
+  elt.classList.add(className);
+  parent.appendChild(elt);
+  return elt;
+}
 
 function createCard(title: string, imageUrl: string, energie: number): void {    // Générer les cartes pokémons
-  const card = document.createElement('div');
+
+  const card = createElement("div", "card", cards);
+
   card.setAttribute("id", title);
   card.classList.add('card');
   cards.appendChild(card);
@@ -217,7 +213,6 @@ window.onload = (event) => {                           // affiche le nombre de p
 const counterElt = document.getElementById("counter")!;
 
 const pokemonListItems = document.querySelector(".nomPokemonsPresents ul")!;
-console.log(pokemonListItems);
 
 function togglePokemonLocation(pokeName: string) {
 
@@ -252,9 +247,8 @@ function togglePokemonLocation(pokeName: string) {
     pokemonListItems.innerHTML = `<li id="${pokeName}-list">${pokeName}</li>`;
     let persistentPokeList = pokemonListItems;
 
-    console.log(pokemonListItems);
   }
 
   counterElt.textContent = currentCapacity.toString();
-
+  console.log(pokemonObjects);
 }
